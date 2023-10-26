@@ -1,0 +1,14 @@
+# values.yaml
+---
+ingressClass:
+  enabled: true
+  isDefaultClass: true
+  fallbackApiVersion: v1
+ingressRoute:
+  dashboard:
+    enabled: false
+service:
+  annotations:
+    kubernetes.io/ingress.class: alb
+globalArguments:
+  - "--api.insecure=true"  # Set to "false" for a more secure Traefik dashboard

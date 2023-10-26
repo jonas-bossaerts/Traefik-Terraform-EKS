@@ -1,0 +1,17 @@
+# # ingress-route.yaml
+# ---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: dashboard-route
+  namespace: traefik
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`traefik-dashboard.jonas-bossaerts.com`) 
+      kind: Rule
+      services:
+        - name: api@internal
+          kind: TraefikService
+

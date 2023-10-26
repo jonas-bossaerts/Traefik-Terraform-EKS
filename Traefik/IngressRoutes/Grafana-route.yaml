@@ -1,0 +1,15 @@
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: metrics-route
+  namespace: grafana
+spec:
+  entryPoints:
+    - web
+  routes:
+    - kind: Rule
+      match: Host(`traefik-grafana.jonas-bossaerts.com`) 
+      services:
+        - name: grafana-service
+          port: 80
